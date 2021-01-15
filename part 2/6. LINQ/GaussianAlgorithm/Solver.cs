@@ -22,9 +22,6 @@ namespace GaussAlgorithm
                     var mainCoef = matrix[i][i + shiftColumn];
                     if (mainCoef == 0)
                     {
-                     //   if (i == matrix.Count - 1)
-                       //     continue;
-
                         var possibleLine = matrix.FindIndex(i, x => x[i + shiftColumn] != 0);
                         if (possibleLine == -1)
                         {
@@ -32,6 +29,7 @@ namespace GaussAlgorithm
                             i--;
                             continue;
                         }
+                        
                         var temp = matrix[i];
                         matrix[i] = matrix[possibleLine];
                         matrix[possibleLine] = temp;

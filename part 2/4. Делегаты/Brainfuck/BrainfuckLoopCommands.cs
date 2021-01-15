@@ -6,7 +6,6 @@ namespace func.brainfuck
 {
 	public class BrainfuckLoopCommands
 	{
-		//private static List<(int, int)> pairs = new List<(int, int)>();
 		private static Dictionary<int, int> FindEndFromBegin = new Dictionary<int, int>();
 		private static Dictionary<int, int> FindBeginFromEnd = new Dictionary<int, int>();
 
@@ -45,7 +44,6 @@ namespace func.brainfuck
 
 		public static void RegisterTo(IVirtualMachine vm)
 		{
-			//pairs = new List<(int, int)>();
 			FindEndFromBegin = new Dictionary<int, int>();
 			FindBeginFromEnd = new Dictionary<int, int>();
 

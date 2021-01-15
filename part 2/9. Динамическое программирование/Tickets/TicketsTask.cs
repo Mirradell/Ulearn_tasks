@@ -10,6 +10,7 @@ namespace Tickets
     public class TicketsTask
     {
         private static Dictionary<Tuple<int, int>, BigInteger> dict = new Dictionary<Tuple<int, int>, BigInteger>();
+
         private static BigInteger CountIt(int halfLen, int sum)
         {
             if (dict.ContainsKey(new Tuple<int, int>(halfLen, sum)))

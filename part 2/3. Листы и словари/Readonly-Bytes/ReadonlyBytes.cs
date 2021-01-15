@@ -11,8 +11,8 @@ namespace hashes
 {
     public static class HashDict
     {
-        public static Dictionary<byte[], int> hashes = new Dictionary<byte[], int>();
-        private static Dictionary<int, List<byte[]>> keys = new Dictionary<int, List<byte[]>>();
+        public  static Dictionary<byte[], int>       hashes = new Dictionary<byte[], int>();
+        private static Dictionary<int, List<byte[]>> keys   = new Dictionary<int, List<byte[]>>();
 
         public static void Add(byte[] item, int value)
         {
@@ -26,28 +26,6 @@ namespace hashes
         public static void HasKey(byte[] items, out int hash)
         {
             hash = GetHash(items);
-
-            /*
-            if (!keys.ContainsKey(items.Length)) Add(items, hash);
-
-            var possible = keys[items.Length].Where(x => x[0] == items[0] && x[x.Length - 1] == items[items.Length - 1]).ToList();
-            if (possible.Count == 1 && possible[0].Length == 0 && items.Length == 0)
-                hash = hashes[possible[0]];
-                return true;
-            }
-
-            var neccesaryInd = -1;
-            var counter = 0;
-            foreach (var p in possible)
-            {
-                if (items[items.Length - 1] == p[p.Length - 1] && items[0] == p[0])
-                    neccesaryInd = counter;
-               counter++;
-            }
-
-            if (neccesaryInd != -1)
-                hash = hashes[possible[neccesaryInd]];
-            return neccesaryInd != -1;//*/
         }
 
         public static int GetHash(byte[] items) 
@@ -56,7 +34,7 @@ namespace hashes
 
             if (items.Length > 0)
             {
-                res += items[0] * 16777619;
+                res += items[0] * 16777619; // длинное простое число
                 res += items[items.Length - 1] * 16777619;
             }
             return res;

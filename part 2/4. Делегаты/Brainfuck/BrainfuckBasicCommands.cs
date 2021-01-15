@@ -11,10 +11,7 @@ namespace func.brainfuck
 		public static void RegisterTo(IVirtualMachine vm, Func<int> read, Action<char> write)
 		{
 			vm.RegisterCommand('.', b => {
-				/*
-				var symbolASCII = new byte[1] { b.Memory[b.MemoryPointer] };
-				var symbolUTF   = Encoding.Convert(Encoding.UTF8, Encoding.ASCII, symbolASCII)[0];/*/
-				var symbolUTF = b.Memory[b.MemoryPointer];//*/
+				var symbolUTF = b.Memory[b.MemoryPointer];
 				write(Convert.ToChar(symbolUTF)); 
 			});
 			
@@ -27,6 +24,7 @@ namespace func.brainfuck
 			vm.RegisterCommand('>', b => {
 				b.MemoryPointer = (b.MemoryPointer + 1) % b.Memory.Length;
 			});
+
 			vm.RegisterCommand('<', b => {
 				b.MemoryPointer = (b.MemoryPointer + b.Memory.Length - 1) % b.Memory.Length;
 			});
@@ -60,9 +58,6 @@ namespace func.brainfuck
 					b.Memory[b.MemoryPointer] = Convert.ToByte(temp);
 				});
 			}
-			/*
-A-Z, a-z, 0-9	сохранить ASCII-код этого символа в байт памяти, на который указывает указатель
-			//*/
 		}
 	}
 }

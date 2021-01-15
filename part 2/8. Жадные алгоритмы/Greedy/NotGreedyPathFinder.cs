@@ -9,10 +9,10 @@ namespace Greedy
 {
 	public class ClassForStack
 	{
-		public int EnergyLeft { get; }
-		public List<Point> Path { get; }
-		public Point End { get; }
-		public int Cost { get; }
+		public int         EnergyLeft { get; }
+		public List<Point> Path       { get; }
+		public Point       End        { get; }
+		public int         Cost       { get; }
 		public List<Point> ChestsLeft { get; }
 
 		public ClassForStack(int energyLeft, PathWithCost path, List<Point> chests, Point deleteChest)
@@ -31,12 +31,10 @@ namespace Greedy
 		public ClassForStack(int energyLeft, PathWithCost path, List<Point> prevPath, List<Point> chests, Point deleteChest)
 		{
 			EnergyLeft = energyLeft;
-			//Cost = path.Cost + prevPath.Cost;
 			End = path.End;
 
 			Path = new List<Point>(prevPath);
 			Path.AddRange(path.Path.Skip(1));
-			//Path.Path = Path.Path.Distinct().ToList();
 
 			ChestsLeft = new List<Point>(chests);
 			ChestsLeft.Remove(deleteChest);
@@ -66,7 +64,6 @@ namespace Greedy
 					foreach (var path in paths)
 						if (path.Cost < thisPath.EnergyLeft)
 							if (thisPath.ChestsLeft.Count == 1)
-							//res.Add(new ClassForStack(thisPath.EnergyLeft - path.Cost, path, thisPath.Path, thisPath.ChestsLeft, path.End));
 							{
 								thisPath.Path.AddRange(path.Path.Skip(1));
 								return thisPath.Path;

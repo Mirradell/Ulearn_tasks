@@ -8,8 +8,8 @@ namespace DiskTree
 {
     public class Tree
     {
-        public string Directory = "";
-        public int Spaces = -1;
+        public string     Directory = "";
+        public int        Spaces    = -1;
         public List<Tree> SubDirectory;
 
         public Tree(string dir = "", int space = -1)
@@ -32,20 +32,6 @@ namespace DiskTree
                 var index = lastNode.SubDirectory.FindIndex(x => x.Directory == splitted[i]);
                 if (index != -1)
                     lastNode = lastNode.SubDirectory[index];
-                /*
-         foreach (var dir in hren)
-            {
-                var splittedDir = dir.Split('\\');
-                for (int i = 0; i < splittedDir.Length; i++)
-                    if (res.ContainsKey(i))
-                    {
-                        if (!res[i].Contains(splittedDir[i]))
-                            res[i].Add(splittedDir[i]);
-                    }
-                    else
-                        res.Add(i, new List<string>() { splittedDir[i] });
-            }
-        //*/
                 else
                 {
                     lastNode.SubDirectory.Add(new Tree(splitted[i], lastNode.Spaces + 1));
@@ -61,20 +47,6 @@ namespace DiskTree
                 res += " ";
             return res;
         }
-        /*
-         foreach (var dir in hren)
-            {
-                var splittedDir = dir.Split('\\');
-                for (int i = 0; i < splittedDir.Length; i++)
-                    if (res.ContainsKey(i))
-                    {
-                        if (!res[i].Contains(splittedDir[i]))
-                            res[i].Add(splittedDir[i]);
-                    }
-                    else
-                        res.Add(i, new List<string>() { splittedDir[i] });
-            }
-        //*/
 
         public List<string> BeatifulPrint()
         {
@@ -92,37 +64,10 @@ namespace DiskTree
     }
     public class DiskTreeTask
     {
-        public static List<string> Solve(List<String> hren)
+        public static List<string> Solve(List<String> treeString)
         {
-            /*
-            var res = new SortedDictionary<int, List<string>>();
-            foreach (var dir in hren)
-            {
-                var splittedDir = dir.Split('\\');
-                for (int i = 0; i < splittedDir.Length; i++)
-                    if (res.ContainsKey(i))
-                    {
-                        if (!res[i].Contains(splittedDir[i]))
-                            res[i].Add(splittedDir[i]);
-                    }
-                    else
-                        res.Add(i, new List<string>() { splittedDir[i] });
-            }
-
-            var end = new List<string>();
-            foreach(var key in res.Keys)
-            {
-                string spaces = "";
-                for (int i = 0; i < key; i++)
-                    spaces += " ";
-
-                //res[key].ForEach(x => x = spaces + x);
-                end.AddRange(res[key].OrderBy(x => x).Select(x => spaces + x));
-            }
-            return end;//*/
-
             var tree = new Tree();
-            foreach(var dir in hren)
+            foreach(var dir in treeString)
             {
                 tree.Add(dir);
             }

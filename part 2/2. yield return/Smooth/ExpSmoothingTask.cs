@@ -8,24 +8,24 @@ namespace yield
 	{
 		public static IEnumerable<DataPoint> SmoothExponentialy(this IEnumerable<DataPoint> data, double alpha)
 		{
-			var prev = double.NaN;
+			var previousDataPoint = double.NaN;
 			foreach(var d in data)
             {
-				var dp = new DataPoint();
-				dp.OriginalY = d.OriginalY;
-				dp.X = d.X;
+				var dataPoint = new DataPoint();
+				dataPoint.OriginalY = d.OriginalY;
+				dataPoint.X = d.X;
 
-				if (double.IsNaN(prev))
+				if (double.IsNaN(previousDataPoint))
 				{
 					d.ExpSmoothedY = d.OriginalY;
-					prev = d.OriginalY;
+					previousDataPoint = d.OriginalY;
 					yield return d;
 				}
 				else
 				{
-					dp.ExpSmoothedY = alpha * dp.OriginalY + (1 - alpha) * prev;
-					prev = dp.ExpSmoothedY;
-					yield return dp;
+					dataPoint.ExpSmoothedY = alpha * dataPoint.OriginalY + (1 - alpha) * previousDataPoint;
+					previousDataPoint = dataPoint.ExpSmoothedY;
+					yield return dataPoint;
 				}
 			}
 		}

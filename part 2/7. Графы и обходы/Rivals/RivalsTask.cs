@@ -67,30 +67,3 @@ namespace Rivals
 		}
 	}
 }
-
-/*
- var gray = new HashSet<Point>();
-			var current = new Queue<SinglyLinkedList<Point>>();
-
-			//visited.Add(start)
-			gray.Add(start);
-			current.Enqueue(new SinglyLinkedList<Point>(start));
-
-			while (current.Count() != 0)
-            {
-				var node = current.Dequeue();
-
-				//Check?!
-				if (chests.Contains(node.Value))
-					yield return node;
-
-				foreach (var nextNode in GetNeighbours(node.Value).Where(n =>  !gray.Contains(n) &&
-																		 		map.InBounds(n)  && 
-																		 		map.Dungeon[n.X, n.Y] == MapCell.Empty))
-				{
-					gray.Add(nextNode);
-					//add point somewhere
-					current.Enqueue(new SinglyLinkedList<Point>(nextNode, node));
-				}
-			}
-//*/

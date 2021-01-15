@@ -13,9 +13,9 @@ namespace BinaryTrees
 
         public Node(T value = default(T))
         {
-            Value = value;
-            Left = null;
-            Right = null;
+            Value  = value;
+            Left   = null;
+            Right  = null;
             Parent = null;
         }
 
@@ -24,9 +24,7 @@ namespace BinaryTrees
         where T : IComparable
     {
         private Node<T> node;
-        //private SortedSet<T> nodes = new SortedSet<T>();
         private SortedList<T, int> nodes = new SortedList<T, int>();
-       // private HashSet<T> nodes = new HashSet<T>();
 
         public void Add(T key)
         {
@@ -37,7 +35,6 @@ namespace BinaryTrees
 
             if (node == null)
                 node = new Node<T>(key);
-            //return
 
             var curNode = node;
             while (curNode != null)
@@ -58,18 +55,7 @@ namespace BinaryTrees
 
         public virtual IEnumerator<T> GetEnumerator()
         {
-            /*
-             
-            var res = new List<T>();
-            if (node != null)
-            {
-                 res.AddRange(Depth(node.Left));
-                res.Add(node.Value);
-                res.AddRange(Depth(node.Right));
-            }
-            return res;
-            //*/
-            return nodes.Keys.GetEnumerator();
+           return nodes.Keys.GetEnumerator();
         }
 
         public bool Contains(T key)
@@ -81,15 +67,6 @@ namespace BinaryTrees
                 return true;
 
             var curNode = node;
-            /*
-             
-            while (curNode != null)
-                if (curNode.Value.CompareTo(key) == 0) return;
-                else if (curNode.Value.CompareTo(key) > 0 && curNode.Left == null) curNode.Left = new Node<T>(key);
-                else if (curNode.Value.CompareTo(key) < 0 && curNode.Right == null) curNode.Right = new Node<T>(key);
-                else if (curNode.Value.CompareTo(key) > 0) curNode = curNode.Left;
-                else if (curNode.Value.CompareTo(key) < 0) curNode = curNode.Right;
-             //*/
             while (curNode != null)
                 if (curNode.Value.CompareTo(key) == 0)
                     return true;
@@ -103,11 +80,10 @@ namespace BinaryTrees
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            //TODO!!!!!!!!!!!!!!!!
             return GetEnumerator();
         }
 
-        public BinaryTree() { }
+        public  BinaryTree() { }
         private BinaryTree(Node<T> n){ node = n; }
 
         private List<T> Depth(Node<T> node)
@@ -115,7 +91,7 @@ namespace BinaryTrees
             var res = new List<T>();
             if (node != null)
             {
-                 res.AddRange(Depth(node.Left));
+                res.AddRange(Depth(node.Left));
                 res.Add(node.Value);
                 res.AddRange(Depth(node.Right));
             }

@@ -10,7 +10,6 @@ namespace yield
 	{
 		public static IEnumerable<DataPoint> MovingMax(this IEnumerable<DataPoint> data, int windowWidth)
 		{
-			//var window = new LinkedList<Tuple<int, DataPoint>>();
 			var window = new List<Tuple<int, DataPoint>>();
 			int counter = 1;
 			foreach (var d in data)
@@ -24,12 +23,6 @@ namespace yield
 
 				if (window.Count > 0 && window[window.Count - 1].Item2.OriginalY < d.OriginalY)
 					window.RemoveAll(x => x.Item2.OriginalY < d.OriginalY);
-/*				while (window.Count > 0 && window.Last().Item2.OriginalY < d.OriginalY)
-				window.RemoveLast();
-
-				if (window.Count > 0 && counter - window.First().Item1 >= windowWidth)
-					window.RemoveFirst();
-				//*/
 
 				window.Add(new Tuple<int, DataPoint>(counter, d));
 

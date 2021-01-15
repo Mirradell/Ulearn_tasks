@@ -5,11 +5,11 @@ namespace func.brainfuck
 {
 	public class VirtualMachine : IVirtualMachine
 	{
-		public string Instructions { get; }
-		public int InstructionPointer { get; set; }
-		public byte[] Memory { get; }
-		public int MemoryPointer { get; set; }
-		//private List<Tuple<char, Action<IVirtualMachine>>> commands = new List<Tuple<char, Action<IVirtualMachine>>>();
+		public  string Instructions       { get; }
+		public  int    InstructionPointer { get; set; }
+		public  byte[] Memory             { get; }
+		public  int    MemoryPointer      { get; set; }
+
 		private Dictionary<char, Action<IVirtualMachine>> commands = new Dictionary<char, Action<IVirtualMachine>>();
 
 		public VirtualMachine(string program, int memorySize)
@@ -30,7 +30,6 @@ namespace func.brainfuck
 
 		public void RegisterCommand(char symbol, Action<IVirtualMachine> execute)
 		{
-			//commands.Add(new Tuple<char, Action<IVirtualMachine>>(symbol, execute));
 			if (!commands.ContainsKey(symbol))
 				commands.Add(symbol, execute);
 		}
@@ -39,7 +38,6 @@ namespace func.brainfuck
 		{
 			while (InstructionPointer < Instructions.Length)
 			{
-				//var index = commands.FindIndex(x => x.Item1 == Instructions[InstructionPointer]);
 				var current = Instructions[InstructionPointer];
 				if (commands.ContainsKey(current))
 					commands[current](this);

@@ -6,42 +6,24 @@ namespace linq_slideviews
 {
 	public class StatisticsTask
 	{
-		/*
-		 группировка по пользователям->
-		 ->в этих группах: {сортировка по времени
-							->удаление дублирующийся слайдов(перезаходы) 
-							->составление биграмм
-							->расчёт времени переходов со слайдов с заданным типом}
-		->объединение последовательностей времён полученных по группам
-		-> расчёт медианы.
-		//*/
 		public static double GetMedianTimePerSlide(List<VisitRecord> visits, SlideType slideType)
 		{
 			if (visits.Count() == 0)
 				return 0.0;
 
-			var bigrams = visits.OrderBy(x => x.UserId).ThenBy(x => x.DateTime);
-			//.Distinct()
-
-			var step2 = bigrams
-				.Bigrams();
-
-			var step3 = step2
-				.Where(x => x.Item1.SlideType == slideType
-						&&  x.Item1.UserId    == x.Item2.UserId
-						// && x.Item2.SlideType == slideType
-						 && x.Item1.SlideId != x.Item2.SlideId
-						);
-
-			var step4 = step3
-				.Select(x => (x.Item2.DateTime - x.Item1.DateTime).TotalMinutes)
-				.Where(x => x >= 1 && x <= 120)
-				;
+			var bigrams = visits.OrderBy(x => x.UserId)
+								.ThenBy(x => x.DateTime)
+								.Bigrams()
+								.Where(x => x.Item1.SlideType == slideType
+										&&  x.Item1.UserId    == x.Item2.UserId
+										&&  x.Item1.SlideId   != x.Item2.SlideId)
+								.Select(x => (x.Item2.DateTime - x.Item1.DateTime).TotalMinutes)
+								.Where(x => x >= 1 && x <= 120);
 
 			if (bigrams.Count() == 0)//*/
 				return 0.0;
 
-			return step4.Median();
+			return bigrams.Median();
 		}
 	}
 }

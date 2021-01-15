@@ -32,7 +32,6 @@ namespace hashes
 				cats.elems[0].Rename("002");
 
 			if (docs != null)
-				//				docs.elems[0] = new Document(docs.elems[0].Title, Encoding.ASCII, Encoding.Convert(Encoding.ASCII, Encoding.UTF8, content));
 				content[0] = 3;
 
 			if (segs != null)
@@ -52,10 +51,12 @@ namespace hashes
 			content[0] = 1;
 			return docs.elems[0];
 		}
+
 		Cat IFactory<Cat>.Create()
 		{
 			return cats.elems[0];
 		}
+		
 		Robot IFactory<Robot>.Create()
 		{
 			Robot.BatteryCapacity = 200;

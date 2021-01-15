@@ -1,0 +1,7 @@
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\AngryBirds.exercise\bin\Debug\AngryBirds.exe.config
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\AngryBirds.exercise\bin\Debug\AngryBirds.exe
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\AngryBirds.exercise\bin\Debug\AngryBirds.pdb
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\AngryBirds.exercise\bin\Debug\TestingRoom.dll
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\AngryBirds.exercise\obj\Debug\AngryBirds.csprojResolveAssemblyReference.cache
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\AngryBirds.exercise\obj\Debug\AngryBirds.exe
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\AngryBirds.exercise\obj\Debug\AngryBirds.pdb

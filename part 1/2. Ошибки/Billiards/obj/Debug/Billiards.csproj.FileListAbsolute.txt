@@ -1,0 +1,7 @@
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\Billiards.exercise\bin\Debug\Billiards.exe.config
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\Billiards.exercise\bin\Debug\Billiards.exe
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\Billiards.exercise\bin\Debug\Billiards.pdb
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\Billiards.exercise\bin\Debug\TestingRoom.dll
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\Billiards.exercise\obj\Debug\Billiards.csprojResolveAssemblyReference.cache
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\Billiards.exercise\obj\Debug\Billiards.exe
+C:\Users\Olga\Desktop\всё\Универ\работы\C#\Billiards.exercise\obj\Debug\Billiards.pdb
